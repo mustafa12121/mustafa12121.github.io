@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "my portfolio as a Front end developer to show my skills and projects",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mustafa12121/mustafa12121.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "front-end",
+    "developers"
+  ],
+  "author": "Mustafa Ismail Mustafa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mustafa12121/mustafa12121.github.io/issues"
+  },
+  "homepage": "https://github.com/mustafa12121/mustafa12121.github.io#readme"
+}
