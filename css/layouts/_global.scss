@@ -1,0 +1,23 @@
+@use "../mixens/mixen" as *;
+@use "../variables/vars" as *;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $dark_bgcolor;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  padding: 50px 25px;
+  @include mediakuiry(mobile) {
+    padding: 50px 15px;
+  }
+}

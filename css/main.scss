@@ -1,0 +1,49 @@
+@use "./layouts/global";
+@use "./layouts/header";
+@use "./layouts/about"; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//the styling for the development secrin
+.development--inwork {
+  position: absolute;
+  color: rgb(0, 255, 234);
+  font-size: 1.6rem;
+  font-weight: bold;
+  width: 100vw;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.wotch {
+  animation: rotate 3s infinite;
+  display: inline-block;
+  height: 2.4rem;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
