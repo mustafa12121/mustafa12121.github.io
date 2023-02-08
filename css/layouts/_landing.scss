@@ -1,0 +1,65 @@
+@use "../variables/vars" as *;
+.landing {
+  height: calc(100vh - $header-h);
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    .info {
+      h2 {
+        word-spacing: -2px;
+        span {
+          font-size: 3rem;
+          color: $main-tcolor;
+          display: block;
+        }
+      }
+    }
+    .pro--img {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      border-radius: 60px;
+      overflow: hidden;
+      .img-box {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 10;
+          width: 60%;
+          height: 100%;
+          left: 50%;
+          top: 0;
+          box-shadow: 0px 0px 50px -5px gold inset;
+          border-radius: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+    p {
+      line-height: 1.5;
+      color: $white-50;
+      &.work {
+        font-size: 1.7rem;
+        span {
+          color: $main-tcolor;
+          animation: blink $trans_time * 2s infinite;
+          border-color: $main-tcolor;
+        }
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  from {
+    border-right: 2px solid;
+  }
+  to {
+    border-right: none;
+  }
+}

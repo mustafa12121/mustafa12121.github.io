@@ -9,6 +9,7 @@
 body {
   background-color: $dark_bgcolor;
   color: white;
+  font-family: sans-serif;
 }
 
 a {
@@ -17,7 +18,52 @@ a {
 
 section {
   padding: 50px 25px;
+  border: 1px solid $main-tcolor;
   @include mediakuiry(mobile) {
     padding: 50px 15px;
+  }
+  &:not(.landing) {
+    min-height: 100vh;
+  }
+}
+
+@mixin bsudo-heading {
+  content: "";
+  width: 30%;
+  height: 2px;
+  position: absolute;
+  background-color: $main-tcolor;
+  transition: $trans_time * 1s;
+}
+.heading {
+  @include flex-center;
+  margin-bottom: 25px;
+  justify-content: center;
+  h2 {
+    position: relative;
+    margin: {
+      top: 15px;
+      bottom: 20px;
+    }
+    width: fit-content;
+    font-size: 3rem;
+    &::after {
+      @include bsudo-heading();
+      right: 0;
+      bottom: 0;
+    }
+    &::before {
+      @include bsudo-heading();
+      top: 0;
+      left: 0;
+    }
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+      &::before {
+        width: 100%;
+      }
+    }
   }
 }
