@@ -1,5 +1,5 @@
 const pageRuning = {
-  isRuning: true,
+  isRuning: false,
   inDevContenet: "Sorry the bage is under development",
 };
 
