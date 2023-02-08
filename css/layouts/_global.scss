@@ -1,5 +1,8 @@
 @use "../mixens/mixen" as *;
 @use "../variables/vars" as *;
+:root {
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,13 +20,32 @@ a {
 }
 
 section {
+  overflow: hidden;
   padding: 50px 25px;
-  border: 1px solid $main-tcolor;
   @include mediakuiry(mobile) {
     padding: 50px 15px;
   }
   &:not(.landing) {
     min-height: 100vh;
+  }
+  position: relative;
+}
+
+.bobel {
+  width: 100px;
+  height: 100px;
+  background-color: $main-tcolor;
+  animation: raise $trans_time * 2s infinite alternate-reverse;
+  position: absolute;
+  bottom: 0;
+  border-radius: 50%;
+}
+@keyframes raise {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(100%);
   }
 }
 

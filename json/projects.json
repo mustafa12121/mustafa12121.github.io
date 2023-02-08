@@ -1,0 +1,46 @@
+[
+  {
+    "mainUrl": "https://mustafa1212.github.io",
+    "projects": [
+      {
+        "moreThanLink": false,
+        "compataple": "Computer",
+        "name": "memory game",
+        "imgsSrc": [
+          "./img/memory1.PNG",
+          "./img/memory2.PNG",
+          "./img/memory3.PNG"
+        ],
+        "url": "memory-game"
+      },
+      {
+        "moreThanLink": false,
+        "compataple": "Computer",
+        "name": "type test",
+        "imgsSrc": [
+          "./img/typetest1.PNG",
+          "./img/typetest2.PNG",
+          "./img/typetest3.PNG"
+        ],
+        "url": "type-clope-game"
+      },
+      {
+        "moreThanLink": true,
+        "compataple": "Responsive",
+        "name": "Elzero templates",
+        "imgsSrc": [
+          { "img": "./img/zerotem1.PNG", "url": "front-end-template01" },
+          { "img": "./img/zerotem2.PNG", "url": "front-end-template02" },
+          { "img": "./img/zerotem3.PNG", "url": "front-end-template03" }
+        ]
+      },
+      {
+        "moreThanLink": false,
+        "compataple": "Responsive",
+        "name": "Bootstrab desing",
+        "imgsSrc": ["./img/zerotem4.PNG"],
+        "url": "bootstrab-design"
+      }
+    ]
+  }
+]
