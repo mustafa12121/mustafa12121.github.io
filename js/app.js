@@ -1,6 +1,6 @@
 const pageRuning = {
   isRuning: false,
-  inDevContenet: "Sorry the bage is under development",
+  inDevContenet: "Bage is onder Development",
 };
 
 let work = document.getElementById("work");
