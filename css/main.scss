@@ -3,6 +3,7 @@
 @use "./layouts/landing";
 @use "./layouts/servess";
 @use "./layouts/projects";
+@use "./layouts/about";
 //
 //
 //
@@ -18,21 +19,20 @@
 .development--inwork {
   position: absolute;
   color: rgb(0, 255, 234);
-  font-size: 1.6rem;
+  font-size: 20px;
   font-weight: bold;
   width: 100vw;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
   gap: 10px;
 }
 
 .wotch {
   animation: rotate 3s infinite;
   display: inline-block;
-  height: 2.4rem;
 }
 
 @keyframes rotate {

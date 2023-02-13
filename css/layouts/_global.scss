@@ -2,11 +2,23 @@
 @use "../variables/vars" as *;
 :root {
   scroll-behavior: smooth;
+  &.light {
+    --light-bgcolor: rgba(255, 255, 255, 0.907);
+    --main-tcolor: initial;
+    --hover-bgcolor: initial;
+    --black-50: rgba(255, 255, 255, 0.81);
+    --white-50: rgba(0, 0, 0, 0.583);
+    --card-color: initial;
+    body {
+      color: black;
+    }
+  }
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 body {
@@ -21,14 +33,35 @@ a {
 
 section {
   overflow: hidden;
+  position: relative;
   padding: 50px 25px;
-  @include mediakuiry(mobile) {
-    padding: 50px 15px;
-  }
   &:not(.landing) {
     min-height: 100vh;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 15px;
+      left: 0;
+      background-image: linear-gradient(
+        240deg,
+        $dark_second_bgcolor 50%,
+        $dark_bgcolor 50%
+      );
+      background-size: 100px;
+    }
   }
   position: relative;
+  &:nth-child(2n) {
+    background-color: $dark_second_bgcolor;
+  }
+  @include mediakuiry(mobile) {
+    padding: 50px 15px;
+    &:not(.landing)::before {
+      background-size: 50px;
+    }
+  }
 }
 
 .bobel {
@@ -49,14 +82,6 @@ section {
   }
 }
 
-@mixin bsudo-heading {
-  content: "";
-  width: 30%;
-  height: 2px;
-  position: absolute;
-  background-color: $main-tcolor;
-  transition: $trans_time * 1s;
-}
 .heading {
   @include flex-center;
   margin-bottom: 25px;

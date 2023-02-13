@@ -1,41 +1,53 @@
 const pageRuning = {
   isRuning: false,
-  inDevContenet: "Bage is onder Development",
+  inDevContenet: "Bage is under Development",
 };
 
-let work = document.getElementById("work");
-//works most be an array
-let works = ["Front-End developer", "Networker"];
-typeEffect(works, work, { add: 150, remove: 150 });
+if (!pageRuning.isRuning) {
+  document.body.innerHTML = "";
+  let div = document.createElement("div");
+  div.className = "development--inwork";
+  let wotch = document.createElement("span");
+  wotch.append("⏳");
+  wotch.className = "wotch";
+  let content = pageRuning.inDevContenet;
+  div.append(content, wotch);
+  document.body.append(div);
+} else {
+  let work = document.getElementById("work");
+  //works most be an array
+  let works = ["Front-End developer", "Networker"];
+  typeEffect(works, work, { add: 150, remove: 150 });
 
-//the water Effect
-let sections = document.getElementsByTagName("section");
-for (let i = 0; i < sections.length; i++) {
-  sections[i].addEventListener("mousemove", (e) => {
-    let id = sections[i].id;
-    let section = document.getElementById(`${id}`);
-    let bobel = document.createElement("div");
-    bobel.className = "bobel";
-    bobel.style.left = `${e.offsetX}px`;
-    section.appendChild(bobel);
-    setTimeout(() => {
-      bobel.remove();
-    }, 900);
-  });
-}
-//######## geting the slider data from the json file
-getslidersdata()
-  .then((data) => {
-    data.projects.forEach((project) => {
-      creatSlider(data.mainUrl, project);
+  //the water Effect
+  let sections = document.getElementsByTagName("section");
+  for (let i = 0; i < sections.length; i++) {
+    sections[i].addEventListener("mousemove", (e) => {
+      let id = sections[i].id;
+      let section = document.getElementById(`${id}`);
+      let bobel = document.createElement("div");
+      bobel.className = "bobel";
+      bobel.style.left = `${e.offsetX}px`;
+      section.appendChild(bobel);
+      setTimeout(() => {
+        bobel.remove();
+      }, 900);
     });
-  })
-  .then(() => {
-    liscenToArrows();
-  })
-  .catch((error) => {
-    throw Error(error);
-  });
+  }
+  //######## geting the slider data from the json file
+  getslidersdata()
+    .then((data) => {
+      data.projects.forEach((project) => {
+        creatSlider(data.mainUrl, project);
+      });
+    })
+    .then(() => {
+      liscenToArrows();
+    })
+    .catch((error) => {
+      throw Error(error);
+    });
+}
 
 //start creating the slider
 function creatSlider(mainUrl, sliderData) {
@@ -56,7 +68,7 @@ function creatSlider(mainUrl, sliderData) {
   caption.className = "caption";
   caption.appendChild(document.createTextNode(sliderData.name));
   box.appendChild(caption);
-  document.querySelector("#project .container").appendChild(box);
+  document.querySelector("#project #jsProjectContainer").appendChild(box);
 }
 //creating the slider elements (the imgs not included)
 function createsliderElsments(sliderData) {
@@ -78,12 +90,14 @@ function createsliderElsments(sliderData) {
 
 //adding the imgs to the slider
 function addingImgToSlider(img, container, link) {
-  let anher = document.createElement("a");
-  anher.href = link;
+  let ansher = document.createElement("a");
+  ansher.href = link;
+  ansher.target = "_blanck";
   let imgElement = document.createElement("img");
+  imgElement.alt = "this is an image";
   imgElement.src = img;
-  anher.appendChild(imgElement);
-  container.prepend(anher);
+  ansher.appendChild(imgElement);
+  container.prepend(ansher);
 }
 
 function creatslidercontent() {}
@@ -99,7 +113,10 @@ function liscenToArrows() {
     slider.addEventListener("click", (eve) => {
       let links = slider.querySelectorAll("a");
       let arrows = slider.querySelectorAll(".control");
-      if (eve.target.classList.contains("right")) {
+      if (
+        eve.target.classList.contains("right") ||
+        eve.target.tagName == "path"
+      ) {
         if (conter > -(links.length - 1)) {
           arrows.forEach((arrow) => {
             arrow.classList.remove("disabled");
@@ -110,7 +127,10 @@ function liscenToArrows() {
         if (conter == -(links.length - 1)) {
           arrows[0].classList.add("disabled");
         }
-      } else if (eve.target.classList.contains("left")) {
+      } else if (
+        eve.target.classList.contains("left") ||
+        eve.target.tagName == "path"
+      ) {
         if (conter < 0) {
           arrows.forEach((arrow) => arrow.classList.remove("disabled"));
           conter++;
@@ -155,16 +175,4 @@ function typeEffect(
       }, 1000);
     }
   }, time.add);
-}
-
-if (!pageRuning.isRuning) {
-  document.body.innerHTML = "";
-  let div = document.createElement("div");
-  div.className = "development--inwork";
-  let wotch = document.createElement("span");
-  wotch.append("⏳");
-  wotch.className = "wotch";
-  let content = pageRuning.inDevContenet;
-  div.append(content, wotch);
-  document.body.append(div);
 }

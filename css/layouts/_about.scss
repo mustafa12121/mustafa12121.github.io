@@ -1,0 +1,30 @@
+@use "../variables/vars" as *;
+@use "../mixens/mixen" as *;
+
+.about {
+  .container {
+    @include grid-4;
+    .text-box {
+      h3 {
+        font-size: 1.7rem;
+        span {
+          color: $main-tcolor;
+        }
+        margin-bottom: 15px;
+      }
+      p {
+        color: $white-50;
+        span {
+          color: $main-tcolor;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .img-box {
+      position: relative;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

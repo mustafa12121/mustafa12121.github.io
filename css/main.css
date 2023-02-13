@@ -1,15 +1,39 @@
 :root {
+  --light-bgcolor: initial;
+  --main-tcolor: initial;
+  --hover-bgcolor: initial;
+  --black-50: initial;
+  --white-50: initial;
+  --card-color: initial;
+}
+
+:root {
   scroll-behavior: smooth;
+}
+:root.light {
+  --light-bgcolor: rgba(255, 255, 255, 0.907);
+  --main-tcolor: initial;
+  --hover-bgcolor: initial;
+  --black-50: rgba(255, 255, 255, 0.81);
+  --white-50: rgba(0, 0, 0, 0.583);
+  --card-color: initial;
+}
+:root.light body {
+  color: black;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
-  background-color: #000000;
+  background-color: var(--light-bgcolor, #000000);
   color: white;
   font-family: sans-serif;
 }
@@ -20,22 +44,39 @@ a {
 
 section {
   overflow: hidden;
+  position: relative;
   padding: 50px 25px;
   position: relative;
+}
+section:not(.landing) {
+  min-height: 100vh;
+}
+section:not(.landing)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 15px;
+  left: 0;
+  background-image: linear-gradient(240deg, var(--light-second-bgcolor, rgb(16, 16, 16)) 50%, var(--light-bgcolor, #000000) 50%);
+  background-size: 100px;
+}
+section:nth-child(2n) {
+  background-color: var(--light-second-bgcolor, rgb(16, 16, 16));
 }
 @media (max-width: 767px) {
   section {
     padding: 50px 15px;
   }
-}
-section:not(.landing) {
-  min-height: 100vh;
+  section:not(.landing)::before {
+    background-size: 50px;
+  }
 }
 
 .bobel {
   width: 100px;
   height: 100px;
-  background-color: gold;
+  background-color: var(--main-tcolor, gold);
   animation: raise 0.6s infinite alternate-reverse;
   position: absolute;
   bottom: 0;
@@ -79,7 +120,7 @@ section:not(.landing) {
   width: 30%;
   height: 2px;
   position: absolute;
-  background-color: gold;
+  background-color: var(--main-tcolor, gold);
   transition: 0.3s;
   right: 0;
   bottom: 0;
@@ -89,7 +130,7 @@ section:not(.landing) {
   width: 30%;
   height: 2px;
   position: absolute;
-  background-color: gold;
+  background-color: var(--main-tcolor, gold);
   transition: 0.3s;
   top: 0;
   left: 0;
@@ -121,6 +162,7 @@ header .logo {
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
+  padding-left: 25px;
 }
 header nav {
   display: flex;
@@ -136,7 +178,7 @@ header ul li a {
   transition: 0.3s;
   position: relative;
   padding: 10px 15px;
-  color: gold;
+  color: var(--main-tcolor, gold);
 }
 header ul li a::after {
   content: "";
@@ -148,7 +190,7 @@ header ul li a::after {
   bottom: 0;
   height: 5%;
   width: 0%;
-  background-color: rgba(255, 217, 0, 0.935);
+  background-color: var(--hover-bgcolor, rgba(255, 217, 0, 0.935));
 }
 @media (max-width: 767px) {
   header ul li a {
@@ -179,7 +221,7 @@ header .bars {
 header .bars span {
   width: 100%;
   height: 3px;
-  background-color: gold;
+  background-color: var(--main-tcolor, gold);
   transition: 0.3s;
 }
 header .bars:hover span:nth-child(2) {
@@ -200,14 +242,14 @@ header .bars:hover span:nth-child(3) {
 .landing .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
+  gap: 15px;
 }
 .landing .container .info h2 {
   word-spacing: -2px;
 }
 .landing .container .info h2 span {
   font-size: 3rem;
-  color: gold;
+  color: var(--main-tcolor, gold);
   display: block;
 }
 .landing .container .pro--img {
@@ -237,16 +279,16 @@ header .bars:hover span:nth-child(3) {
 }
 .landing .container p {
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.81);
+  color: var(--white-50, rgba(255, 255, 255, 0.81));
 }
 .landing .container p.work {
   font-size: 1.7rem;
 }
 .landing .container p.work span {
-  color: gold;
+  color: var(--main-tcolor, gold);
   -webkit-animation: blink 0.6s infinite;
           animation: blink 0.6s infinite;
-  border-color: gold;
+  border-color: var(--main-tcolor, gold);
 }
 
 @-webkit-keyframes blink {
@@ -272,22 +314,22 @@ header .bars:hover span:nth-child(3) {
   gap: 15px;
 }
 .serves .container .box {
-  box-shadow: 0px 0 25px 1px inset #00bcd4;
+  box-shadow: 0px 0 25px 1px inset var(--card-color, #00bcd4);
   transition: 0.3s;
   padding: 10px 15px;
   display: flex;
   flex-direction: column;
 }
 .serves .container .box:hover {
-  box-shadow: 0px 0 25px 10px inset #00bcd4;
+  box-shadow: 0px 0 25px 10px inset var(--card-color, #00bcd4);
 }
 .serves .container .box .icon {
-  color: #00bcd4;
+  color: var(--card-color, #00bcd4);
   margin-top: 10px;
 }
 .serves .container .box h3 {
   margin-top: 10px;
-  color: gold;
+  color: var(--main-tcolor, gold);
   font-size: 1.4rem;
   text-align: center;
 }
@@ -295,7 +337,7 @@ header .bars:hover span:nth-child(3) {
   line-height: 1.6;
   margin-top: 10px;
   margin-bottom: 15px;
-  color: rgba(255, 255, 255, 0.81);
+  color: var(--white-50, rgba(255, 255, 255, 0.81));
 }
 
 .project .container {
@@ -308,7 +350,7 @@ header .bars:hover span:nth-child(3) {
 }
 .project .container .box .box--slider {
   --photo-slide: 0;
-  border: 5px solid gold;
+  border: 5px solid var(--main-tcolor, gold);
   display: flex;
   overflow: hidden;
   position: relative;
@@ -319,12 +361,12 @@ header .bars:hover span:nth-child(3) {
   left: 0;
   padding: 5px;
   font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.583);
+  background-color: var(--black-50, rgba(0, 0, 0, 0.583));
 }
 .project .container .box .box--slider .control {
   cursor: pointer;
   padding: 10px;
-  background-color: gold;
+  background-color: var(--main-tcolor, gold);
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.3rem;
@@ -341,10 +383,8 @@ header .bars:hover span:nth-child(3) {
 }
 .project .container .box .box--slider a {
   transition: 0.6s;
+  display: flex;
   transform: translateX(calc(100% * var(--photo-slide)));
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   width: 100%;
   flex-shrink: 0;
 }
@@ -353,22 +393,69 @@ header .bars:hover span:nth-child(3) {
 }
 .project .container .box .caption {
   font-size: 1.3rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-bottom: 5px;
+  position: relative;
   margin-top: 10px;
   margin-bottom: 15px;
+  margin-right: auto;
+  margin-left: auto;
   display: block;
+}
+.project .container .box .caption::after {
+  content: "";
+  content: "";
+  width: 30%;
+  height: 2px;
+  position: absolute;
+  background-color: var(--main-tcolor, gold);
+  transition: 0.3s;
+  bottom: 0;
+  left: 0;
+}
+.project .container .box:hover .caption::after {
+  width: 100%;
+}
+
+.about .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+.about .container .text-box h3 {
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+.about .container .text-box h3 span {
+  color: var(--main-tcolor, gold);
+}
+.about .container .text-box p {
+  color: var(--white-50, rgba(255, 255, 255, 0.81));
+}
+.about .container .text-box p span {
+  color: var(--main-tcolor, gold);
+  font-size: 1.2rem;
+}
+.about .container .img-box {
+  position: relative;
+}
+.about .container .img-box img {
+  width: 100%;
 }
 
 .development--inwork {
   position: absolute;
   color: rgb(0, 255, 234);
-  font-size: 1.6rem;
+  font-size: 20px;
   font-weight: bold;
   width: 100vw;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
   gap: 10px;
 }
 
@@ -376,7 +463,6 @@ header .bars:hover span:nth-child(3) {
   -webkit-animation: rotate 3s infinite;
           animation: rotate 3s infinite;
   display: inline-block;
-  height: 2.4rem;
 }
 
 @-webkit-keyframes rotate {

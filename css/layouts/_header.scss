@@ -18,6 +18,7 @@ header {
     text-transform: uppercase;
     position: relative;
     cursor: pointer;
+    padding-left: 25px;
   }
   nav {
     @include flex-center;

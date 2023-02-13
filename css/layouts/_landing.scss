@@ -1,10 +1,9 @@
+@use "../mixens/mixen" as *;
 @use "../variables/vars" as *;
 .landing {
   height: calc(100vh - $header-h);
   .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
+    @include grid-4;
     .info {
       h2 {
         word-spacing: -2px;

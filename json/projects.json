@@ -1,15 +1,15 @@
 [
   {
-    "mainUrl": "https://mustafa1212.github.io",
+    "mainUrl": "https://mustafa12121.github.io",
     "projects": [
       {
         "moreThanLink": false,
         "compataple": "Computer",
         "name": "memory game",
         "imgsSrc": [
-          "./img/memory1.PNG",
+          "./img/memory3.PNG",
           "./img/memory2.PNG",
-          "./img/memory3.PNG"
+          "./img/memory1.PNG"
         ],
         "url": "memory-game"
       },
@@ -18,9 +18,9 @@
         "compataple": "Computer",
         "name": "type test",
         "imgsSrc": [
-          "./img/typetest1.PNG",
+          "./img/typetest3.PNG",
           "./img/typetest2.PNG",
-          "./img/typetest3.PNG"
+          "./img/typetest1.PNG"
         ],
         "url": "type-clope-game"
       },
