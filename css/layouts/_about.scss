@@ -17,6 +17,10 @@
         span {
           color: $main-tcolor;
           font-size: 1.2rem;
+          &.person {
+            color: rgb(25, 255, 25);
+            font-weight: bold;
+          }
         }
       }
     }

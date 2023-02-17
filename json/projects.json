@@ -8,8 +8,8 @@
         "name": "memory game",
         "imgsSrc": [
           "./img/memory3.PNG",
-          "./img/memory2.PNG",
-          "./img/memory1.PNG"
+          "./img/memory2.jpg",
+          "./img/memory1.jpg"
         ],
         "url": "memory-game"
       },
@@ -19,8 +19,8 @@
         "name": "type test",
         "imgsSrc": [
           "./img/typetest3.PNG",
-          "./img/typetest2.PNG",
-          "./img/typetest1.PNG"
+          "./img/typetest2.jpg",
+          "./img/typetest1.jpg"
         ],
         "url": "type-clope-game"
       },
@@ -29,9 +29,9 @@
         "compataple": "Responsive",
         "name": "Elzero templates",
         "imgsSrc": [
-          { "img": "./img/zerotem1.PNG", "url": "front-end-template01" },
-          { "img": "./img/zerotem2.PNG", "url": "front-end-template02" },
-          { "img": "./img/zerotem3.PNG", "url": "front-end-template03" }
+          { "img": "./img/zerotem1.jpg", "url": "front-end-template01" },
+          { "img": "./img/zerotem2.jpg", "url": "front-end-template02" },
+          { "img": "./img/zerotem3.jpg", "url": "front-end-template03" }
         ]
       },
       {

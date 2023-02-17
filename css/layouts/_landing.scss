@@ -1,7 +1,14 @@
 @use "../mixens/mixen" as *;
 @use "../variables/vars" as *;
+.background-v {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+}
 .landing {
   height: calc(100vh - $header-h);
+  background-image: url("../../video/landing.mp4");
   .container {
     @include grid-4;
     .info {

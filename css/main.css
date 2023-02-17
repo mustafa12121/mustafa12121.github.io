@@ -44,6 +44,7 @@ a {
 
 section {
   overflow: hidden;
+  background-color: hsla(0deg, 0%, 0%, 0.6);
   position: relative;
   padding: 50px 25px;
   position: relative;
@@ -58,7 +59,7 @@ section:not(.landing)::before {
   width: 100%;
   height: 15px;
   left: 0;
-  background-image: linear-gradient(240deg, var(--light-second-bgcolor, rgb(16, 16, 16)) 50%, var(--light-bgcolor, #000000) 50%);
+  background-image: linear-gradient(240deg, var(--light-second-bgcolor, rgb(16, 16, 16)) 50%, transparent 50%);
   background-size: 100px;
 }
 section:nth-child(2n) {
@@ -149,9 +150,9 @@ header {
   color: white;
   padding: 10px;
   height: 50px;
-  box-shadow: -5px 0px 50px -8px rgba(255, 255, 255, 0.7019607843);
   display: flex;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
   justify-content: space-between;
   position: relative;
   z-index: 100;
@@ -236,8 +237,16 @@ header .bars:hover span:nth-child(3) {
   }
 }
 
+.background-v {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+}
+
 .landing {
   height: calc(100vh - 50px);
+  background-image: url("../../video/landing.mp4");
 }
 .landing .container {
   display: grid;
@@ -437,6 +446,10 @@ header .bars:hover span:nth-child(3) {
 .about .container .text-box p span {
   color: var(--main-tcolor, gold);
   font-size: 1.2rem;
+}
+.about .container .text-box p span.person {
+  color: rgb(25, 255, 25);
+  font-weight: bold;
 }
 .about .container .img-box {
   position: relative;

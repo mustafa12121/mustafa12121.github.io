@@ -1,5 +1,5 @@
 const pageRuning = {
-  isRuning: false,
+  isRuning: true,
   inDevContenet: "Bage is under Development",
 };
 
@@ -16,7 +16,7 @@ if (!pageRuning.isRuning) {
 } else {
   let work = document.getElementById("work");
   //works most be an array
-  let works = ["Front-End developer", "Networker"];
+  let works = ["Front-End developer", "Networker", "javascript dev"];
   typeEffect(works, work, { add: 150, remove: 150 });
 
   //the water Effect
