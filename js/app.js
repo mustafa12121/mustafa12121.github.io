@@ -3,6 +3,7 @@ const pageRuning = {
   inDevContenet: "Bage is under Development",
 };
 
+document.querySelector("video").play();
 if (!pageRuning.isRuning) {
   document.body.innerHTML = "";
   let div = document.createElement("div");
@@ -28,6 +29,7 @@ if (!pageRuning.isRuning) {
       let bobel = document.createElement("div");
       bobel.className = "bobel";
       bobel.style.left = `${e.offsetX}px`;
+      console.log(this);
       section.appendChild(bobel);
       setTimeout(() => {
         bobel.remove();
