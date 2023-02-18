@@ -27,15 +27,17 @@ header {
   ul {
     @include flex-center;
     list-style: none;
+    transition: $trans_time * 1s;
     li {
       a {
         transition: $trans_time * 1s;
         position: relative;
         padding: 10px 15px;
         color: $main-tcolor;
+        display: block;
         &::after {
           content: "";
-          z-index: -1;
+          z-index: 0;
           font-size: 1.3rem;
           position: absolute;
           left: 0;
@@ -44,9 +46,6 @@ header {
           height: 5%;
           width: 0%;
           background-color: $hover-bgcolor;
-        }
-        @include mediakuiry(mobile) {
-          padding: 20px 10px;
         }
       }
 
@@ -59,13 +58,25 @@ header {
         }
       }
     }
+
     @include mediakuiry(mobile) {
-      flex-direction: column;
-      margin-top: calc(100% + 30px);
-      align-items: flex-start;
+      position: absolute;
+      right: 0;
+      top: $header-h;
+      display: block;
+      width: 50%;
+      backdrop-filter: blur(5px);
+      background-color: rgb(39, 38, 38, 0.7);
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+    }
+    &.active {
+      opacity: 1;
+      transform: translate(0);
+      pointer-events: all;
     }
   }
-
   .bars {
     display: none;
     flex-direction: column;

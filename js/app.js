@@ -1,9 +1,23 @@
 const pageRuning = {
-  isRuning: true,
+  isRuning: false,
   inDevContenet: "Bage is under Development",
 };
 
-document.querySelector("video").play();
+//adding the bar actions
+const bar = document.querySelector(".bars");
+const ul = document.querySelector("header ul");
+document.body.addEventListener("click", (eve) => {
+  if (eve.target == bar || eve.target == ul) {
+    ul.classList.add("active");
+  } else {
+    ul.classList.remove("active");
+  }
+});
+//playing the video if the brother did not
+window.onload = () => {
+  document.querySelector("video").play();
+};
+
 if (!pageRuning.isRuning) {
   document.body.innerHTML = "";
   let div = document.createElement("div");
@@ -29,7 +43,6 @@ if (!pageRuning.isRuning) {
       let bobel = document.createElement("div");
       bobel.className = "bobel";
       bobel.style.left = `${e.offsetX}px`;
-      console.log(this);
       section.appendChild(bobel);
       setTimeout(() => {
         bobel.remove();
