@@ -4,6 +4,9 @@
 @use "./layouts/servess";
 @use "./layouts/projects";
 @use "./layouts/about";
+@use "./layouts/contact";
+@use "./layouts/footer";
+@use "./mixens/mixen" as *;
 //
 //
 //
@@ -33,19 +36,4 @@
 .wotch {
   animation: rotate 3s infinite;
   display: inline-block;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-  40% {
-    transform: rotate(180deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }

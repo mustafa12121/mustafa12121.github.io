@@ -1,0 +1,12 @@
+@use "../variables/vars" as *;
+footer {
+  background-color: $dark_second_bgcolor;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  z-index: 200;
+  span {
+    color: $main-tcolor;
+    font-weight: bold;
+  }
+}

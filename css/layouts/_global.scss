@@ -11,6 +11,7 @@
     --card-color: initial;
     body {
       color: black;
+      background: url("../../video/landing.mp4");
     }
   }
 }
@@ -21,6 +22,29 @@
   user-select: none;
 }
 
+.loding {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: $dark_second_bgcolor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  --delay: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  span {
+    width: 10px;
+    height: 10px;
+    background-color: $main-tcolor;
+    margin-left: 5px;
+    border-radius: 50%;
+    animation: raise-loding 1s ease-in-out infinite both alternate;
+    animation-delay: var(--delay);
+    font-size: 2rem;
+  }
+}
 body {
   background-color: $dark_bgcolor;
   color: white;
@@ -53,7 +77,7 @@ section {
     }
   }
   position: relative;
-  &:nth-child(2n) {
+  &:nth-of-type(2n) {
     background-color: $dark_second_bgcolor;
   }
   @include mediakuiry(mobile) {
@@ -78,6 +102,19 @@ section {
     transform: translateY(50%);
   }
   to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes raise-loding {
+  0% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(100%);
+  }
+
+  100% {
     transform: translateY(100%);
   }
 }

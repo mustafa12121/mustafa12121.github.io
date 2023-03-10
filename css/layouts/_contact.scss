@@ -1,0 +1,25 @@
+@use "../variables/vars" as *;
+input {
+  --main-tcolor: rgba(255, 217, 0, 0.9);
+  background-color: transparent;
+  border: 0;
+  position: relative;
+  border: 1px solid transparent;
+  border-bottom-color: white;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background-color: $main-tcolor;
+    left: 0;
+    width: 100%;
+    height: 0;
+    height: 100%;
+  }
+  &:focus {
+    outline: none;
+    &::before {
+      height: 100%;
+    }
+  }
+}

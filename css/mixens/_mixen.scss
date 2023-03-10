@@ -37,3 +37,18 @@
   background-color: $main-tcolor;
   transition: $trans_time * 1s;
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

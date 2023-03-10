@@ -24,7 +24,48 @@
           }
         }
       }
+      h4 {
+        font-size: 1.1rem;
+        margin: 15px 10px;
+      }
+      ul {
+        margin-left: 10px;
+        list-style: none;
+        li {
+          padding: 7px;
+          position: relative;
+          &::after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-color: $main-tcolor;
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            clip-path: polygon(
+              50% 0,
+              60% 40%,
+              100% 40%,
+              68% 60%,
+              90% 100%,
+              50% 73%,
+              10% 100%,
+              30% 60%,
+              0% 40%,
+              40% 40%
+            );
+            transition: $trans_time * 1.5s ease;
+          }
+          &:hover {
+            &::after {
+              transform: translateY(-50%) rotate(1turn);
+            }
+          }
+        }
+      }
     }
+
     .img-box {
       position: relative;
       img {
