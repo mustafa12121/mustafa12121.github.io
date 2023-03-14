@@ -67,6 +67,37 @@ if (!pageRuning.isRuning) {
     });
 }
 
+let conatct = document.querySelector(".contact-div");
+//contact form
+let conForm = conatct.querySelector("form");
+
+conatct.addEventListener("click", () => {
+  if (!conForm.classList.contains("submited")) {
+    conForm.style.transform = `translateY(0) `;
+    setTimeout(() => {
+      conForm.style.zIndex = "10";
+    }, 300);
+  }
+  conForm.classList.add("submited");
+});
+conForm.addEventListener("submit", (eve) => {
+  let tran;
+  if (window.innerWidth >= 500) {
+    console.log("biger than");
+    tran = "195px";
+  } else {
+    console.log("smolar than");
+    tran = "65%";
+  }
+  conForm.style.zIndex = "0";
+  setTimeout(() => {
+    conForm.style.transform = `translateY(${tran})`;
+  }, 300);
+
+  eve.preventDefault();
+});
+console.log(conForm);
+
 //start creating the slider
 function creatSlider(mainUrl, sliderData) {
   let box = document.createElement("div");
@@ -124,6 +155,7 @@ async function getslidersdata() {
   let dataobj = await data.json();
   return dataobj[0];
 }
+//(--photo-slide) is a css var to change the curent photo position
 function liscenToArrows() {
   let sliders = document.querySelectorAll(".box--slider");
   sliders.forEach((slider) => {
