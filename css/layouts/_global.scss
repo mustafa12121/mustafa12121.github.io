@@ -151,3 +151,15 @@ section {
     }
   }
 }
+
+::-webkit-scrollbar {
+  background-color: black;
+}
+::-webkit-scrollbar:hover {
+  background-color: rgb(47, 47, 47);
+}
+::-webkit-scrollbar-thumb {
+  transition: $trans_time * 1s;
+  background-image: radial-gradient($main-tcolor 10%, transparent);
+  border-radius: 50px;
+}

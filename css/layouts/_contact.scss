@@ -57,6 +57,17 @@
       z-index: -1;
     }
   }
+  #thanks {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    transform: translate(-50%, -50%);
+    transition: $trans_time * 1s;
+    opacity: 0;
+  }
   @media (max-width: 500px) {
     width: 250px;
     & img:nth-of-type(2) {

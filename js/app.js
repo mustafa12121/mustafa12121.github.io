@@ -1,5 +1,5 @@
 const pageRuning = {
-  isRuning: false,
+  isRuning: true,
   inDevContenet: "Bage is under Development",
 };
 
@@ -39,7 +39,7 @@ if (!pageRuning.isRuning) {
 
   //the water Effect
   let sections = document.getElementsByTagName("section");
-  for (let i = 0; i < sections.length; i++) {
+  for (let i = 0; i < sections.length; i += 2) {
     sections[i].addEventListener("mousemove", (e) => {
       let id = sections[i].id;
       let section = document.getElementById(`${id}`);
@@ -67,6 +67,7 @@ if (!pageRuning.isRuning) {
     });
 }
 
+//the contact form logec gos here
 let conatct = document.querySelector(".contact-div");
 //contact form
 let conForm = conatct.querySelector("form");
@@ -92,6 +93,8 @@ conForm.addEventListener("submit", (eve) => {
   conForm.style.zIndex = "0";
   setTimeout(() => {
     conForm.style.transform = `translateY(${tran})`;
+    conForm.classList.remove("submited");
+    document.querySelector("#thanks").style.opacity = "1";
   }, 300);
 
   eve.preventDefault();

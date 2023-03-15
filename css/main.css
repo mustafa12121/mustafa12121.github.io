@@ -221,6 +221,21 @@ section:nth-of-type(2n) {
   width: 100%;
 }
 
+::-webkit-scrollbar {
+  background-color: black;
+}
+
+::-webkit-scrollbar:hover {
+  background-color: rgb(47, 47, 47);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-image: radial-gradient(var(--main-tcolor, gold) 10%, transparent);
+  border-radius: 50px;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -376,7 +391,8 @@ header .bars:hover span:nth-child(3) {
   transform: translateX(-50%);
 }
 .landing .container .pro--img img {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 .landing .container p {
   line-height: 1.5;
@@ -637,6 +653,17 @@ header .bars:hover span:nth-child(3) {
 .contact-div img:nth-of-type(2) {
   top: 11.5%;
   z-index: -1;
+}
+.contact-div #thanks {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  opacity: 0;
 }
 @media (max-width: 500px) {
   .contact-div {
