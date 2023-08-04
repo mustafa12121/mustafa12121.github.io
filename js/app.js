@@ -6,17 +6,18 @@ const pageRuning = {
 //adding the bar actions
 const bar = document.querySelector(".bars");
 const ul = document.querySelector("header ul");
-
+bar.addEventListener("click", () => {
+  ul.classList.add("active");
+});
+//testing start
+//testing end
 document.body.addEventListener("click", (eve) => {
-  if (eve.target == bar) {
-    ul.classList.add("active");
-  } else {
+  if (eve.target !== bar && eve.target.parentElement !== bar) {
     ul.classList.remove("active");
   }
 });
 //playing the video if the broother did not
 window.onload = () => {
-  document.querySelector("video").play();
   document.body.style = "";
   document.querySelector("#loding").remove();
 };
@@ -45,11 +46,11 @@ if (!pageRuning.isRuning) {
       let section = document.getElementById(`${id}`);
       let bobel = document.createElement("div");
       bobel.className = "bobel";
-      bobel.style.left = `${e.offsetX}px`;
+      bobel.style.left = `${e.offsetX - 100}px`;
       section.appendChild(bobel);
       setTimeout(() => {
         bobel.remove();
-      }, 900);
+      }, 1000);
     });
   }
   //######## geting the slider data from the json file
@@ -71,35 +72,42 @@ if (!pageRuning.isRuning) {
 let conatct = document.querySelector(".contact-div");
 //contact form
 let conForm = conatct.querySelector("form");
+let tran;
 
+if (window.innerWidth >= 500) {
+  tran = "195px";
+} else {
+  tran = "65%";
+}
 conatct.addEventListener("click", () => {
-  if (!conForm.classList.contains("submited")) {
+  if (!conForm.classList.contains("shoing")) {
     conForm.style.transform = `translateY(0) `;
     setTimeout(() => {
+      console.log("hidding");
       conForm.style.zIndex = "10";
     }, 300);
   }
-  conForm.classList.add("submited");
+  conForm.classList.add("shoing");
 });
 conForm.addEventListener("submit", (eve) => {
-  let tran;
-  if (window.innerWidth >= 500) {
-    console.log("biger than");
-    tran = "195px";
-  } else {
-    console.log("smolar than");
-    tran = "65%";
-  }
-  conForm.style.zIndex = "0";
-  setTimeout(() => {
-    conForm.style.transform = `translateY(${tran})`;
-    conForm.classList.remove("submited");
-    document.querySelector("#thanks").style.opacity = "1";
-  }, 300);
-
+  hidAndSubmite(true);
   eve.preventDefault();
 });
-console.log(conForm);
+//(hide) is the hiding button
+let hide = document.querySelector("#hide");
+hide.addEventListener("click", () => {
+  hidAndSubmite();
+});
+
+//hiding the contact form if submite or hide clicked
+function hidAndSubmite(submited = false) {
+  conForm.style.zIndex = "1";
+  setTimeout(() => {
+    conForm.style.transform = `translateY(${tran})`;
+    conForm.classList.remove("shoing");
+    if (submited) document.querySelector("#thanks").style.opacity = "1";
+  }, 300);
+}
 
 //start creating the slider
 function creatSlider(mainUrl, sliderData) {

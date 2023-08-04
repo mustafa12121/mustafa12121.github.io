@@ -4,7 +4,7 @@
     "projects": [
       {
         "moreThanLink": false,
-        "compataple": "Computer",
+        "compataple": "Responsive",
         "name": "memory game",
         "imgsSrc": [
           "./img/memory3.PNG",
@@ -19,7 +19,7 @@
         "name": "type test",
         "imgsSrc": [
           "./img/typetest3.PNG",
-          "./img/typetest2.jpg",
+          "./img/typetest2.PNG",
           "./img/typetest1.jpg"
         ],
         "url": "type-clope-game"

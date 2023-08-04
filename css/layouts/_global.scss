@@ -1,20 +1,23 @@
 @use "../mixens/mixen" as *;
 @use "../variables/vars" as *;
+
 :root {
   scroll-behavior: smooth;
+
   &.light {
-    --light-bgcolor: rgba(255, 255, 255, 0.907);
+    --light-bgcolor: rgba(255, 255, 255, 0.905);
     --main-tcolor: initial;
     --hover-bgcolor: initial;
     --black-50: rgba(255, 255, 255, 0.81);
     --white-50: rgba(0, 0, 0, 0.583);
     --card-color: initial;
+
     body {
       color: black;
-      background: url("../../video/landing.mp4");
     }
   }
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -34,6 +37,7 @@
   --delay: 0;
   font-size: 1.6rem;
   font-weight: bold;
+
   span {
     width: 10px;
     height: 10px;
@@ -45,6 +49,7 @@
     font-size: 2rem;
   }
 }
+
 body {
   background-color: $dark_bgcolor;
   color: white;
@@ -54,13 +59,16 @@ body {
 a {
   text-decoration: none;
 }
+
 section {
   overflow: hidden;
   background-color: hsla(0, 0%, 0%, 0.6);
   position: relative;
   padding: 50px 25px;
+
   &:not(.landing) {
     min-height: 100vh;
+
     &::before {
       content: "";
       position: absolute;
@@ -76,12 +84,16 @@ section {
       background-size: 100px;
     }
   }
+
   position: relative;
+
   &:nth-of-type(2n) {
     background-color: $dark_second_bgcolor;
   }
+
   @include mediakuiry(mobile) {
     padding: 50px 15px;
+
     &:not(.landing)::before {
       background-size: 50px;
     }
@@ -89,18 +101,20 @@ section {
 }
 
 .bobel {
-  width: 100px;
+  width: 200px;
   height: 100px;
   background-color: $main-tcolor;
-  animation: raise $trans_time * 2s infinite alternate-reverse;
+  animation: raise $trans_time * 2s 2 alternate-reverse;
   position: absolute;
   bottom: 0;
   border-radius: 50%;
 }
+
 @keyframes raise {
   from {
     transform: translateY(50%);
   }
+
   to {
     transform: translateY(100%);
   }
@@ -109,9 +123,6 @@ section {
 @keyframes raise-loding {
   0% {
     transform: translateY(0%);
-  }
-  80% {
-    transform: translateY(100%);
   }
 
   100% {
@@ -123,28 +134,35 @@ section {
   @include flex-center;
   margin-bottom: 25px;
   justify-content: center;
+
   h2 {
     position: relative;
+
     margin: {
       top: 15px;
       bottom: 20px;
     }
+
     width: fit-content;
     font-size: 3rem;
+
     &::after {
       @include bsudo-heading();
       right: 0;
       bottom: 0;
     }
+
     &::before {
       @include bsudo-heading();
       top: 0;
       left: 0;
     }
+
     &:hover {
       &::after {
         width: 100%;
       }
+
       &::before {
         width: 100%;
       }
@@ -152,12 +170,18 @@ section {
   }
 }
 
+.main-colored {
+  color: $main-tcolor;
+}
+
 ::-webkit-scrollbar {
   background-color: black;
 }
+
 ::-webkit-scrollbar:hover {
   background-color: rgb(47, 47, 47);
 }
+
 ::-webkit-scrollbar-thumb {
   transition: $trans_time * 1s;
   background-image: radial-gradient($main-tcolor 10%, transparent);

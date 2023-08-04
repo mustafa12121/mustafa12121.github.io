@@ -4,11 +4,13 @@
   width: 340px;
   backdrop-filter: blur(0px);
   margin: auto;
+  position: relative;
   .form-wraper {
     overflow: hidden;
   }
   form {
     padding: 15px;
+    z-index: 1;
     position: relative;
     background-image: url("../../img/letter_bg.png");
     color: black;
@@ -37,12 +39,18 @@
       height: 150px;
       padding: 5px;
     }
-    input[type="submit"] {
-      border: none;
+    .buttons {
+      display: flex;
+      margin-top: 25px;
+      justify-content: space-evenly;
+    }
+    input[type="submit"],
+    span {
       font-weight: bold;
-      margin: 15px auto;
-      display: block;
       cursor: pointer;
+      border: 1px solid black;
+      padding: 5px 15px;
+      border-radius: 10px;
     }
   }
   img {
@@ -51,10 +59,11 @@
     left: -10%;
     &:nth-of-type(1) {
       bottom: -1%;
+      z-index: 3;
     }
     &:nth-of-type(2) {
       top: 11.5%;
-      z-index: -1;
+      z-index: 0;
     }
   }
   #thanks {
@@ -67,6 +76,7 @@
     transform: translate(-50%, -50%);
     transition: $trans_time * 1s;
     opacity: 0;
+    z-index: 3;
   }
   @media (max-width: 500px) {
     width: 250px;

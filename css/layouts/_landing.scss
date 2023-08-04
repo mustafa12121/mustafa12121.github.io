@@ -55,9 +55,7 @@
       &.work {
         font-size: 1.7rem;
         span {
-          color: $main-tcolor;
           animation: blink $trans_time * 2s infinite;
-          border-color: $main-tcolor;
         }
       }
     }

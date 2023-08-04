@@ -57,6 +57,9 @@
             );
             transition: $trans_time * 1.5s ease;
           }
+          span {
+            font-weight: bold;
+          }
           &:hover {
             &::after {
               transform: translateY(-50%) rotate(1turn);

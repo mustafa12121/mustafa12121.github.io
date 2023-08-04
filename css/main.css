@@ -40,7 +40,7 @@
   scroll-behavior: smooth;
 }
 :root.light {
-  --light-bgcolor: rgba(255, 255, 255, 0.907);
+  --light-bgcolor: rgba(255, 255, 255, 0.905);
   --main-tcolor: initial;
   --hover-bgcolor: initial;
   --black-50: rgba(255, 255, 255, 0.81);
@@ -49,7 +49,6 @@
 }
 :root.light body {
   color: black;
-  background: url("../../video/landing.mp4");
 }
 
 * {
@@ -131,10 +130,10 @@ section:nth-of-type(2n) {
 }
 
 .bobel {
-  width: 100px;
+  width: 200px;
   height: 100px;
   background-color: var(--main-tcolor, gold);
-  animation: raise 0.6s infinite alternate-reverse;
+  animation: raise 0.6s 2 alternate-reverse;
   position: absolute;
   bottom: 0;
   border-radius: 50%;
@@ -161,9 +160,6 @@ section:nth-of-type(2n) {
   0% {
     transform: translateY(0%);
   }
-  80% {
-    transform: translateY(100%);
-  }
   100% {
     transform: translateY(100%);
   }
@@ -171,9 +167,6 @@ section:nth-of-type(2n) {
 @keyframes raise-loding {
   0% {
     transform: translateY(0%);
-  }
-  80% {
-    transform: translateY(100%);
   }
   100% {
     transform: translateY(100%);
@@ -219,6 +212,10 @@ section:nth-of-type(2n) {
 }
 .heading h2:hover::before {
   width: 100%;
+}
+
+.main-colored {
+  color: var(--main-tcolor, gold);
 }
 
 ::-webkit-scrollbar {
@@ -402,10 +399,8 @@ header .bars:hover span:nth-child(3) {
   font-size: 1.7rem;
 }
 .landing .container p.work span {
-  color: var(--main-tcolor, gold);
   -webkit-animation: blink 0.6s infinite;
           animation: blink 0.6s infinite;
-  border-color: var(--main-tcolor, gold);
 }
 
 @-webkit-keyframes blink {
@@ -455,6 +450,9 @@ header .bars:hover span:nth-child(3) {
   margin-top: 10px;
   margin-bottom: 15px;
   color: var(--white-50, rgba(255, 255, 255, 0.81));
+}
+.serves .container .box svg {
+  height: 4rem;
 }
 
 .project .container {
@@ -585,6 +583,9 @@ header .bars:hover span:nth-child(3) {
           clip-path: polygon(50% 0, 60% 40%, 100% 40%, 68% 60%, 90% 100%, 50% 73%, 10% 100%, 30% 60%, 0% 40%, 40% 40%);
   transition: 0.45s ease;
 }
+.about .container .text-box ul li span {
+  font-weight: bold;
+}
 .about .container .text-box ul li:hover::after {
   transform: translateY(-50%) rotate(1turn);
 }
@@ -600,12 +601,14 @@ header .bars:hover span:nth-child(3) {
   -webkit-backdrop-filter: blur(0px);
           backdrop-filter: blur(0px);
   margin: auto;
+  position: relative;
 }
 .contact-div .form-wraper {
   overflow: hidden;
 }
 .contact-div form {
   padding: 15px;
+  z-index: 1;
   position: relative;
   background-image: url("../../img/letter_bg.png");
   color: black;
@@ -635,12 +638,18 @@ header .bars:hover span:nth-child(3) {
   height: 150px;
   padding: 5px;
 }
-.contact-div form input[type=submit] {
-  border: none;
+.contact-div form .buttons {
+  display: flex;
+  margin-top: 25px;
+  justify-content: space-evenly;
+}
+.contact-div form input[type=submit],
+.contact-div form span {
   font-weight: bold;
-  margin: 15px auto;
-  display: block;
   cursor: pointer;
+  border: 1px solid black;
+  padding: 5px 15px;
+  border-radius: 10px;
 }
 .contact-div img {
   max-width: 120%;
@@ -649,10 +658,11 @@ header .bars:hover span:nth-child(3) {
 }
 .contact-div img:nth-of-type(1) {
   bottom: -1%;
+  z-index: 3;
 }
 .contact-div img:nth-of-type(2) {
   top: 11.5%;
-  z-index: -1;
+  z-index: 0;
 }
 .contact-div #thanks {
   position: absolute;
@@ -664,6 +674,7 @@ header .bars:hover span:nth-child(3) {
   transform: translate(-50%, -50%);
   transition: 0.3s;
   opacity: 0;
+  z-index: 3;
 }
 @media (max-width: 500px) {
   .contact-div {
