@@ -99,6 +99,7 @@ hide.addEventListener("click", () => {
   hidAndSubmite();
 });
 
+document.getElementById("copyDate").innerHTML = new Date().getFullYear();
 //hiding the contact form if submite or hide clicked
 function hidAndSubmite(submited = false) {
   conForm.style.zIndex = "1";
@@ -178,6 +179,7 @@ function liscenToArrows() {
         eve.target.classList.contains("right") ||
         eve.target.tagName == "path"
       ) {
+        console.log(conter, -(links.length - 1));
         if (conter > -(links.length - 1)) {
           arrows.forEach((arrow) => {
             arrow.classList.remove("disabled");
@@ -206,16 +208,16 @@ function liscenToArrows() {
 }
 
 function typeEffect(
-  text,
+  textsArray = [],
   container,
   time = { add: 150, remove: 100 },
   conter = 0
 ) {
   container.innerHTML = "";
-  let chars = Array.from(text[conter]);
+  let chars = Array.from(textsArray[conter]);
   let i = 0;
   let adder = setInterval(() => {
-    container.append(chars[i]);
+    container.appendChild(document.createTextNode(chars[i]));
     i++;
     if (i === chars.length) {
       clearInterval(adder);
@@ -226,9 +228,9 @@ function typeEffect(
           if (i == 0) {
             clearInterval(deleter);
             setTimeout(() => {
-              if (conter === text.length - 1)
-                typeEffect(text, container, time, 0);
-              else typeEffect(text, container, time, ++conter);
+              if (conter === textsArray.length - 1)
+                typeEffect(textsArray, container, time);
+              else typeEffect(textsArray, container, time, ++conter);
             }, 1000);
           }
           i--;
