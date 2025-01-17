@@ -610,7 +610,7 @@ header .bars:hover span:nth-child(3) {
   padding: 15px;
   z-index: 1;
   position: relative;
-  background-image: url("../../img/letter_bg.png");
+  background-image: url("../img/letter_bg.png");
   color: black;
   transition: 0.3s;
   transform: translateY(195px);

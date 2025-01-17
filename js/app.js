@@ -40,20 +40,21 @@ if (!pageRuning.isRuning) {
 
   //the water Effect
   let sections = document.getElementsByTagName("section");
-  for (let i = 0; i < sections.length; i += 2) {
-    sections[i].addEventListener("mousemove", (e) => {
-      let id = sections[i].id;
-      let section = document.getElementById(`${id}`);
-      let bobel = document.createElement("div");
-      bobel.className = "bobel";
-      bobel.style.left = `${e.offsetX - 100}px`;
-      section.appendChild(bobel);
-      setTimeout(() => {
-        bobel.remove();
-      }, 1000);
-    });
-  }
-  //######## geting the slider data from the json file
+for (let i = 0; i < sections.length; i += 2) {
+  sections[i].addEventListener("mousemove", (e) => {
+    let id = sections[i].id;
+    let section = document.getElementById(`${id}`);
+    let rect = section.getBoundingClientRect();
+    let bobel = document.createElement("div");
+    bobel.className = "bobel";
+    bobel.style.left = `${e.clientX - rect.left - 100}px`;
+    section.appendChild(bobel);
+    setTimeout(() => {
+      bobel.remove();
+    }, 1000);
+  });
+}
+    //######## geting the slider data from the json file
   getslidersdata()
     .then((data) => {
       data.projects.forEach((project) => {
